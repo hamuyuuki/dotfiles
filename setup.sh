@@ -7,6 +7,18 @@ set -u
 setup() {
     dotfiles=$HOME/.dotfiles
 
+    if [ -d "$dotfiles" ]; then
+        (cd "$dotfiles" && git pull --rebase)
+    else
+        git clone https://github.com/hamuyuuki/dotfiles "$dotfiles"
+    fi
+
+    zsh
+    vim
+    git
+    tmux
+    ctags
+
     has() {
         type "$1" > /dev/null 2>&1
     }
@@ -40,17 +52,6 @@ setup() {
         symlink "$dotfiles/.ctags" "$HOME/.ctags"
     }
 
-    if [ -d "$dotfiles" ]; then
-        (cd "$dotfiles" && git pull --rebase)
-    else
-        git clone https://github.com/hamuyuuki/dotfiles "$dotfiles"
-    fi
-
-    zsh
-    vim
-    git
-    tmux
-    ctags
 }
 
 setup
