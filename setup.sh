@@ -23,13 +23,7 @@ setup() {
 
     vim() {
         symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
-
-        if [ -z "$1" ]; then
-          echo Usage: $0 {config-file}
-          exit
-        fi
-
-        vim -N -u NONE -i NONE -V1 -e -s --cmd "source $1" --cmd NeoBundleInstall! --cmd qall!
+        vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall!
     }
 
     git() {
