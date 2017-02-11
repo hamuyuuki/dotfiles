@@ -1,0 +1,51 @@
+# prefixキーをC-qに変更
+set -g prefix C-q
+
+# C-bのキーバインドを解除
+unbind C-b
+
+# vim color を反映させる
+set-option -g default-terminal screen-256color
+
+# ESCキーの反応を早くする
+set -s escape-time 0
+
+# Windowでmouseを有効にする
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+
+# vimのキーバインドでペインを移動する
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind e setw synchronize-panes on
+bind E setw synchronize-panes off
+
+# Vi キーバインド
+set-window-option -g mode-keys vi
+
+bind q copy-mode \; display "Copy mode!"
+bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind p paste-buffer
+
+# splitw -h
+# selectp -L
+# resize-pane -L 25
+# splitw -v
+# resize-pane -U 11
+# splitw -v
+# selectp -U
+# selectp -U
+
+set-option -g status-interval 1
+set-option -g status-bg black
+set-option -g status-fg white
+set-window-option -g pane-active-border-fg red
+set-window-option -g window-status-format " #I: #{pane_current_path} "
+set-window-option -g window-status-current-format "#[fg=white,bg=red,bold] #I: #{pane_current_path} #[default]"
+set-option -g status-right-length 60
+set-option -g status-right " #H | %Y-%m-%d %H:%M"
+set-option -g status-position top

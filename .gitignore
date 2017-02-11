@@ -1,0 +1,5 @@
+tags
+tags.lock
+.ruby-version
+rubocop.rb
+vendor/bundle
