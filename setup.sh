@@ -17,7 +17,7 @@ setup() {
 
     zsh() {
         sudo yum -y install zsh
-        chsh -s /bin/zsh
+        sudo chsh -s /bin/zsh
         symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
     }
 
