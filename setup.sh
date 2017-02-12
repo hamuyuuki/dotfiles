@@ -7,6 +7,8 @@ set -u
 setup() {
     dotfiles=$HOME/.dotfiles
 
+    git
+
     if [ -d "$dotfiles" ]; then
         (cd "$dotfiles" && git pull --rebase)
     else
@@ -15,7 +17,6 @@ setup() {
 
     zsh
     vim
-    git
     tmux
     ctags
 
