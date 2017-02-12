@@ -39,6 +39,7 @@ setup() {
     }
 
     git() {
+        sudo yum -y install git
         symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
     }
 
