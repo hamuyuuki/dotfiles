@@ -26,7 +26,7 @@ setup() {
 
     init_zsh() {
         sudo yum -y install zsh
-        sudo chsh -s /bin/zsh vagrant
+        sudo chsh -s /bin/zsh $USER
         if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
           git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
