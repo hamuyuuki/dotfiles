@@ -29,8 +29,6 @@ setup() {
         sudo chsh -s /bin/zsh vagrant
         if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
           git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-          zsh -c 'setopt EXTENDED_GLOB'
-          zsh -c 'prompt steeef'
 
           symlink "$HOME/.zprezto/runcoms/zlogin" "$HOME/.zlogin"
           symlink "$HOME/.zprezto/runcoms/zshrc" "$HOME/.zshrc"
@@ -38,6 +36,8 @@ setup() {
           symlink "$HOME/.zprezto/runcoms/zprofile" "$HOME/.zprofile"
           symlink "$HOME/.zprezto/runcoms/zpreztorc" "$HOME/.zpreztorc"
           symlink "$HOME/.zprezto/runcoms/zlogout" "$HOME/.zlogout"
+
+          zsh -c 'setopt EXTENDED_GLOB && prompt steeef'
 
           echo "alias ll='ls -al'" >> "$HOME/.zshrc"
           echo "alias t='tmux attach -t tmux || tmux new-session -s tmux \; source-file ~/.tmux.session'" >> "$HOME/.zshrc"
