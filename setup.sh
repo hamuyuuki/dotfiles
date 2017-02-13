@@ -37,7 +37,8 @@ setup() {
           symlink "$HOME/.zprezto/runcoms/zpreztorc" "$HOME/.zpreztorc"
           symlink "$HOME/.zprezto/runcoms/zlogout" "$HOME/.zlogout"
 
-          zsh -c 'setopt EXTENDED_GLOB && prompt steeef'
+          zsh -c 'setopt EXTENDED_GLOB'
+          # zsh -c 'prompt steeef'
 
           echo "alias ll='ls -al'" >> "$HOME/.zshrc"
           echo "alias t='tmux attach -t tmux || tmux new-session -s tmux \; source-file ~/.tmux.session'" >> "$HOME/.zshrc"
