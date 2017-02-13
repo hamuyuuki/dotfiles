@@ -26,11 +26,11 @@ setup() {
 
     init_zsh() {
         sudo yum -y install zsh
-        sudo chsh -s /bin/zsh vagrant && zsh
+        sudo chsh -s /bin/zsh vagrant
         if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
           git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-          setopt EXTENDED_GLOB
-          prompt steeef
+          zsh -c 'setopt EXTENDED_GLOB'
+          zsh -c 'prompt steeef'
 
           symlink "$HOME/.zprezto/runcoms/zlogin" "$HOME/.zlogin"
           symlink "$HOME/.zprezto/runcoms/zshrc" "$HOME/.zshrc"
