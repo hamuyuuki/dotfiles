@@ -31,7 +31,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'rking/ag.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -42,6 +41,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'vim-scripts/grep.vim'
 
 call neobundle#end()
 
@@ -230,7 +230,8 @@ let g:vimrubocop_config = ".rubocop.yml"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vim-tags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('mac')
+let os=substitute(system('uname'), '\n', '', '')
+if os == 'Darwin' || os == 'Mac'
   let g:vim_tags_project_tags_command ="/usr/local/bin/ctags -f tags -R . 2>/dev/null"
 else
   let g:vim_tags_project_tags_command ="/usr/bin/ctags -f tags -R . 2>/dev/null"

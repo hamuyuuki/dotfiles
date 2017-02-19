@@ -11,9 +11,18 @@ setup() {
         [ -e "$2" ] || ln -s "$1" "$2"
     }
 
+    package_install() {
+      if [`uname` = "Darwin"];then
+        brew install $1
+      else
+        sudo yum -y install $1
+      fi
+    }
+
     init_git() {
-        sudo yum -y install git
+        package_install git
         symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
+        symlink "$dotfiles/.gitignore" "$HOME/.gitignore"
     }
 
     clone_dotfiles() {
@@ -25,7 +34,7 @@ setup() {
     }
 
     init_zsh() {
-        sudo yum -y install zsh
+        package_install zsh
         sudo chsh -s /bin/zsh $USER
         if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
           git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -46,7 +55,8 @@ setup() {
     }
 
     init_vim() {
-        sudo yum -y install vim gcc
+        package_install vim
+        package_install gcc
         symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
         if [ ! -d "$HOME/.vim/bundle" ]; then mkdir -p $HOME/.vim/bundle; fi
         if [ ! -d "$HOME/.vim/plugin" ]; then mkdir -p $HOME/.vim/plugin; fi
@@ -59,12 +69,12 @@ setup() {
 
 
     init_tmux() {
-        sudo yum -y install tmux
+        package_install tmux
         symlink "$dotfiles/.tmux.session" "$HOME/.tmux.session"
     }
 
     init_ctags() {
-        sudo yum -y install ctags
+        package_install ctags
         symlink "$dotfiles/.ctags" "$HOME/.ctags"
     }
 
