@@ -29,6 +29,7 @@ set-window-option -g mode-keys vi
 
 bind q copy-mode \; display "Copy mode!"
 bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -t vi-copy v begin-selection
 bind p paste-buffer
 
 # splitw -h
