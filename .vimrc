@@ -42,6 +42,11 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'vim-scripts/grep.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/open-browser-github.vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'hail2u/vim-css3-syntax'
 
 call neobundle#end()
 
@@ -160,8 +165,8 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-nnoremap <C-e> :NERDTreeToggle<CR>
-inoremap <C-e> <ESC>:NERDTreeToggle<CR>
+nnoremap <C-e> :Unite<Space>file_rec<CR>
+inoremap <C-e> <ESC>:Unite<Space>file_rec<CR>
 
 nnoremap <C-t> :tabnew <C-R>=expand("%:p")<CR><CR>
 inoremap <C-t> <ESC>:tabnew <C-R>=expand("%:p")<CR><CR>
@@ -177,12 +182,14 @@ nnoremap <C-p> :tabprevious<CR>
 nnoremap <C-w> :w<CR>
 nnoremap <C-z> :q!<CR>
 inoremap <C-]> <ESC>g<C-]>
-inoremap <C-n> <C-x><C-n>
-inoremap <C-p> <C-x><C-p>
+inoremap <C-n> <C-x><C-n><C-p>
+inoremap <C-p> <C-x><C-p><C-n>
 inoremap <C-w> <ESC>:w<CR>
 inoremap <C-z> <ESC>:q!<CR>
 
-inoremap <C-f> <C-x><C-f>
+inoremap <C-f> <C-x><C-f><C-p>
+inoremap <C-o> <C-x><C-o><C-p>
+inoremap <C-Space> <C-x><C-]><C-p>
 
 nnoremap <C-_> :sp <C-R>=expand("%:p")<CR><CR>
 nnoremap <C-\> :vs <C-R>=expand("%:p")<CR><CR>
@@ -192,6 +199,7 @@ inoremap <C-\> <ESC>:vs <C-R>=expand("%:p")<CR><CR>
 nnoremap / /\v
 
 inoremap <Nul> <C-p>
+imap <Nul> <C-Space>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
