@@ -12,7 +12,7 @@ setup() {
     }
 
     package_install() {
-      if [`uname` = "Darwin"];then
+      if [ `uname` = "Darwin" ];then
         brew install $1
       else
         sudo yum -y install $1
