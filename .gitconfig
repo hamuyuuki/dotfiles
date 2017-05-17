@@ -3,3 +3,5 @@
 [user]
 	name = hamuyuuki
 	email = hamuyuuki32@gmail.com
+[core]
+        editor = vim -c \"set fenc=utf-8\"
