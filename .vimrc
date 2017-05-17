@@ -137,6 +137,9 @@ set backspace=indent,eol,start
 
 "括弧の補完をしない
 let loaded_matchparen = 1
+
+"Rubyの単語区切りを設定
+autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,8 +168,10 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-nnoremap <C-e> :Unite<Space>file_rec<CR>
-inoremap <C-e> <ESC>:Unite<Space>file_rec<CR>
+"nnoremap <C-e> :Unite<Space>file_rec<CR>
+"inoremap <C-e> <ESC>:Unite<Space>file_rec<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
+inoremap <C-e> <ESC>:NERDTreeToggle<CR>
 
 nnoremap <C-t> :tabnew <C-R>=expand("%:p")<CR><CR>
 inoremap <C-t> <ESC>:tabnew <C-R>=expand("%:p")<CR><CR>
