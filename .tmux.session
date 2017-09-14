@@ -27,8 +27,14 @@ bind E setw synchronize-panes off
 # Vi キーバインド
 set-window-option -g mode-keys vi
 
+# Add 'RemoteForward 8377 localhost:8377' on .ssh/config
+
+# git clone https://github.com/wincent/clipper.git
+# cd clipper
+# cp contrib/darwin/tcp-port/com.wincent.clipper.plist ~/Library/LaunchAgents/
+# launchctl load -w -S Aqua ~/Library/LaunchAgents/com.wincent.clipper.plist
 bind q copy-mode \; display "Copy mode!"
-bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -t vi-copy y copy-pipe "nc localhost 8377"
 bind-key -t vi-copy v begin-selection
 bind -t vi-copy C-v rectangle-toggle
 bind p paste-buffer
