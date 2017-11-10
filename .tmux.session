@@ -48,6 +48,9 @@ bind p paste-buffer
 # selectp -U
 # selectp -U
 
+# 履歴を20000行に変更
+set-option -g history-limit 20000
+
 set-option -g status-interval 1
 set-option -g status-bg black
 set-option -g status-fg white
