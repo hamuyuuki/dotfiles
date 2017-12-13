@@ -206,6 +206,9 @@ nnoremap <Space>y :call system('nc localhost 8377', @0)<CR>
 
 inoremap <Nul> <C-p>
 imap <Nul> <C-Space>
+
+vnoremap y y:call system('nc localhost 8377', @0)<CR>
+nnoremap yy yy:call system('nc localhost 8377', @0)<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
