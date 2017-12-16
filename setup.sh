@@ -51,6 +51,14 @@ setup() {
 
           echo "alias ll='ls -al'" >> "$HOME/.zshrc"
           echo "alias t='tmux attach -t tmux || tmux new-session -s tmux \; source-file ~/.tmux.session'" >> "$HOME/.zshrc"
+          echo "autoload -U compinit" >> "$HOME/.zshrc"
+          echo "compinit" >> "$HOME/.zshrc"
+          echo "autoload history-search-end" >> "$HOME/.zshrc"
+          echo "zle -N history-beginning-search-backward-end history-search-end" >> "$HOME/.zshrc"
+          echo "zle -N history-beginning-search-forward-end history-search-end" >> "$HOME/.zshrc"
+          echo "bindkey '^[OA' history-beginning-search-backward-end" >> "$HOME/.zshrc"
+          echo "bindkey '^[OB' history-beginning-search-forward-end" >> "$HOME/.zshrc"
+          echo "bindkey '^P' history-beginning-search-backward-end" >> "$HOME/.zshrc"
         fi
     }
 

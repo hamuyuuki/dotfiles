@@ -1,9 +1,13 @@
 [color]
-	ui = auto
+  ui = auto
 [user]
-	name = hamuyuuki
-	email = hamuyuuki32@gmail.com
+  name = hamuyuuki
+  email = hamuyuuki32@gmail.com
 [core]
-        editor = vim -c \"set fenc=utf-8\"
+  editor = vim -c \"set fenc=utf-8\"
 [hub]
-        host = gitlab.pixta.jp
+  host = gitlab.pixta.jp
+[alias]
+  st = status
+  co = checkout
+  df = diff
