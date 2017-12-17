@@ -42,11 +42,13 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'othree/html5.vim'
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'w0rp/ale'
 NeoBundle 'ramele/agrep'
 NeoBundle 'ludovicchabant/vim-gutentags'
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'moll/vim-node'
 
 call neobundle#end()
 
