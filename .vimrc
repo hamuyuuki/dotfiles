@@ -29,24 +29,24 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'szw/vim-tags'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'ngmy/vim-rubocop'
 NeoBundle 'romanvbabenko/rails.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'w0rp/ale'
+NeoBundle 'ramele/agrep'
+NeoBundle 'ludovicchabant/vim-gutentags'
 
 call neobundle#end()
 
@@ -99,10 +99,10 @@ set autoread
 set whichwrap=b,s,<,>,[,]
 
 "行表示を許可
-"set cursorline
+set cursorline
 
 "カレント行にアンダーラインを設定
-"highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 "1行100字制限
 set colorcolumn=101
@@ -228,34 +228,6 @@ let g:NERDTreeWinSize = 40
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-quickhl
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-rubocop
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-x> :RuboCop<CR>
-let g:vimrubocop_config = ".rubocop.yml"
-"let g:vimrubocop_rubocop_cmd = "rubocop "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-tags
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let os=substitute(system('uname'), '\n', '', '')
-if os == 'Darwin' || os == 'Mac'
-  let g:vim_tags_project_tags_command ="/usr/local/bin/ctags -f tags -R . 2>/dev/null"
-else
-  let g:vim_tags_project_tags_command ="/usr/bin/ctags -f tags -R . 2>/dev/null"
-endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "taglist
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "タグリストをウィンドウ右側に表示
@@ -298,4 +270,34 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=23
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=28
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ale
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_linters = {'ruby': ['rubocop']}
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"lightline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:lightline = {
+  \'active': {
+  \  'left': [
+  \    ['mode', 'paste'],
+  \    ['readonly', 'filename', 'modified', 'ale'],
+  \  ]
+  \},
+  \'component_function': {
+  \  'ale': 'ALEGetStatusLine'
+  \}
+\ }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"agrep
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:agrep_default_flags = '-rn -I --exclude-dir=.{git,svn}'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
