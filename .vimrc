@@ -45,10 +45,15 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'w0rp/ale'
 NeoBundle 'ramele/agrep'
-NeoBundle 'ludovicchabant/vim-gutentags'
+"NeoBundle 'ludovicchabant/vim-gutentags'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'moll/vim-node'
+NeoBundle 'ConradIrwin/vim-bracketed-paste'
+NeoBundle 'tpope/vim-rake'
+NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 
 call neobundle#end()
 
@@ -101,10 +106,10 @@ set autoread
 set whichwrap=b,s,<,>,[,]
 
 "行表示を許可
-set cursorline
+"set cursorline
 
 "カレント行にアンダーラインを設定
-highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+"highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 "1行100字制限
 set colorcolumn=101
@@ -302,4 +307,14 @@ let g:lightline = {
 "agrep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:agrep_default_flags = '-rn -I --exclude-dir=.{git,svn}'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"fzf
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""

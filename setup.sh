@@ -86,12 +86,22 @@ setup() {
         symlink "$dotfiles/.ctags" "$HOME/.ctags"
     }
 
+    init_ag() {
+        package_install the_silver_searcher
+    }
+
+    init_fzf() {
+        package_install fzf
+    }
+
     init_git
     clone_dotfiles
     init_zsh
     init_tmux
     init_ctags
     init_vim
+    init_ag
+    init_fzf
 }
 
 setup
