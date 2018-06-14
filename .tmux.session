@@ -11,10 +11,10 @@ set-option -g default-terminal screen-256color
 set -s escape-time 0
 
 # Windowでmouseを有効にする
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
+#set -g mode-mouse on
+#set -g mouse-resize-pane on
+#set -g mouse-select-pane on
+#set -g mouse-select-window on
 
 # vimのキーバインドでペインを移動する
 bind h select-pane -L
@@ -34,9 +34,9 @@ set-window-option -g mode-keys vi
 # cp contrib/darwin/tcp-port/com.wincent.clipper.plist ~/Library/LaunchAgents/
 # launchctl load -w -S Aqua ~/Library/LaunchAgents/com.wincent.clipper.plist
 bind q copy-mode \; display "Copy mode!"
-bind-key -t vi-copy y copy-pipe "nc localhost 8377"
-bind-key -t vi-copy v begin-selection
-bind -t vi-copy C-v rectangle-toggle
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xsel -bi"
+bind -T copy-mode-vi v send -X begin-selection
+bind -T copy-mode-vi C-v send -X rectangle-toggle
 bind p paste-buffer
 
 # splitw -h
