@@ -44,8 +44,8 @@ NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'w0rp/ale'
-NeoBundle 'ramele/agrep'
-"NeoBundle 'ludovicchabant/vim-gutentags'
+NeoBundle 'mhinz/vim-grepper'
+NeoBundle 'ludovicchabant/vim-gutentags'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'moll/vim-node'
@@ -183,6 +183,9 @@ inoremap <C-e> <ESC>:NERDTreeToggle<CR>
 nnoremap <C-t> :tabnew <C-R>=expand("%:p")<CR><CR>
 inoremap <C-t> <ESC>:tabnew <C-R>=expand("%:p")<CR><CR>
 
+nnoremap <C-g> :Grepper -tool grep -highlight<CR>
+inoremap <C-g> <ESC>:Grepper -tool grep -highlight<CR>
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
@@ -301,12 +304,6 @@ let g:lightline = {
   \  'ale': 'ALEGetStatusLine'
   \}
 \ }
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"agrep
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:agrep_default_flags = '-rn -I --exclude-dir=.{git,svn}'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
