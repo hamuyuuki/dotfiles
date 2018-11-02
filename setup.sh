@@ -94,6 +94,14 @@ setup() {
         package_install fzf
     }
 
+    init_rbenv() {
+      git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+      git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+      echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> "$HOME/.zshrc"
+      echo 'eval "$(rbenv init -)"' >> "$HOME/.zshrc"
+      exec $SHELL -l
+    }
+
     init_git
     clone_dotfiles
     init_zsh
@@ -102,6 +110,7 @@ setup() {
     init_vim
     init_ag
     init_fzf
+    init_rbenv
 }
 
 setup

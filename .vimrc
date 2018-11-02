@@ -175,10 +175,8 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-"nnoremap <C-e> :Unite<Space>file_rec<CR>
-"inoremap <C-e> <ESC>:Unite<Space>file_rec<CR>
-nnoremap <C-e> :NERDTreeToggle<CR>
-inoremap <C-e> <ESC>:NERDTreeToggle<CR>
+nnoremap <C-e> :Files<CR>
+inoremap <C-e> <ESC>:Files<CR>
 
 nnoremap <C-t> :tabnew <C-R>=expand("%:p")<CR><CR>
 inoremap <C-t> <ESC>:tabnew <C-R>=expand("%:p")<CR><CR>
