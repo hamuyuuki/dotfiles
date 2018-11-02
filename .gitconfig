@@ -1,8 +1,8 @@
 [color]
   ui = auto
 [user]
-  name = pixta-yuki-ito
-  email = yuki.ito@pixta.co.jp
+  name = hamuyuuki
+  email = hamuyuuki32@gmail.com
 [core]
   editor = vim -c \"set fenc=utf-8\"
 	excludesfile = /Users/yuuki_ito/.gitignore
