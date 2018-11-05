@@ -75,7 +75,6 @@ setup() {
         vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall!
     }
 
-
     init_tmux() {
         package_install tmux
         symlink "$dotfiles/.tmux.session" "$HOME/.tmux.session"
@@ -102,15 +101,31 @@ setup() {
       exec $SHELL -l
     }
 
+    init_golang() {
+      package_install golang
+      echo 'export GOPATH=$HOME' >> "$HOME/.zshrc"
+      echo 'export PATH=$PATH:$GOPATH/bin' >> "$HOME/.zshrc"
+      exec $SHELL -l
+    }
+
+    init_ghq() {
+      go get github.com/motemen/ghq
+      echo 'function fzf-src () { cd $(ghq list -p | fzf)  }' >> "$HOME/.zshrc"
+      echo 'zle -N fzf-src' >> "$HOME/.zshrc"
+      echo 'bindkey "^]" fzf-src' >> "$HOME/.zshrc"
+    }
+
     init_git
     clone_dotfiles
     init_zsh
     init_tmux
     init_ctags
-    init_vim
     init_ag
     init_fzf
     init_rbenv
+    init_golang
+    init_ghq
+    init_vim
 }
 
 setup
