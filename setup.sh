@@ -59,6 +59,7 @@ setup() {
             echo "bindkey '^[OA' history-beginning-search-backward-end" >> "$HOME/.zshrc"
             echo "bindkey '^[OB' history-beginning-search-forward-end" >> "$HOME/.zshrc"
             echo "bindkey '^P' history-beginning-search-backward-end" >> "$HOME/.zshrc"
+            echo 'alias stv=''STV_PATH=`pwd | sed -e "s|$HOME/src|/vagrant|"`; ssh vagrant -t "cd $STV_PATH; bash --login"''' >> "$HOME/.zshrc"
         fi
     }
 
@@ -122,6 +123,7 @@ setup() {
     init_vagrant() {
         brew cask install vagrant
         ghq get https://github.com/coreos/coreos-vagrant.git
+        symlink "$dotfiles/Vagrantfile" "$HOME/src/github.com/coreos/coreos-vagrant/Vagrantfile"
     }
 
     init_node() {
