@@ -11,16 +11,8 @@ setup() {
         [ -e "$2" ] || ln -s "$1" "$2"
     }
 
-    package_install() {
-        if [ `uname` = "Darwin" ];then
-            brew install $1
-        else
-            sudo yum -y install $1
-        fi
-    }
-
     init_git() {
-        package_install git
+        sudo apt-get -y install git
         symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
         symlink "$dotfiles/.gitignore" "$HOME/.gitignore"
     }
@@ -34,7 +26,7 @@ setup() {
     }
 
     init_zsh() {
-        package_install zsh
+        sudo apt-get -y install zsh
         sudo chsh -s /bin/zsh $USER
         if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
             git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -64,8 +56,8 @@ setup() {
     }
 
     init_vim() {
-        package_install vim
-        package_install gcc
+        sudo apt-get -y install vim
+        sudo apt-get -y install gcc
         symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
         if [ ! -d "$HOME/.vim/bundle" ]; then mkdir -p $HOME/.vim/bundle; fi
         if [ ! -d "$HOME/.vim/plugin" ]; then mkdir -p $HOME/.vim/plugin; fi
@@ -77,33 +69,36 @@ setup() {
     }
 
     init_tmux() {
-        package_install tmux
+        sudo apt-get -y install tmux
         symlink "$dotfiles/.tmux.session" "$HOME/.tmux.session"
     }
 
     init_ctags() {
-        package_install ctags
+        sudo apt-get -y install ctags
         symlink "$dotfiles/.ctags" "$HOME/.ctags"
     }
 
-    init_ag() {
-        package_install the_silver_searcher
-    }
-
     init_fzf() {
-        package_install fzf
+        if [ ! -d "$HOME/.fzf" ]; then
+            git clone https://github.com/junegunn/fzf.git ~/.fzf
+            ~/.fzf/install
+        fi
     }
 
     init_rbenv() {
-        git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-        git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-        echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> "$HOME/.zshrc"
-        echo 'eval "$(rbenv init -)"' >> "$HOME/.zshrc"
-        exec $SHELL -l
+        if [ ! -d "$HOME/.rbenv" ]; then
+            git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+            git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+            echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> "$HOME/.zshrc"
+            echo 'eval "$(rbenv init -)"' >> "$HOME/.zshrc"
+            exec $SHELL -l
+        fi
     }
 
     init_golang() {
-        package_install golang
+        sudo add-apt-repository ppa:longsleep/golang-backports
+        sudo apt-get update
+        sudo apt-get -y install golang-go
         echo 'export GOPATH=$HOME' >> "$HOME/.zshrc"
         echo 'export PATH=$PATH:$GOPATH/bin' >> "$HOME/.zshrc"
         exec $SHELL -l
@@ -116,18 +111,23 @@ setup() {
         echo 'bindkey "^]" fzf-src' >> "$HOME/.zshrc"
     }
 
-    init_virtualbox() {
-        brew cask install virtualbox
-    }
-
-    init_vagrant() {
-        brew cask install vagrant
-        ghq get https://github.com/coreos/coreos-vagrant.git
-        symlink "$dotfiles/Vagrantfile" "$HOME/src/github.com/coreos/coreos-vagrant/Vagrantfile"
-    }
-
     init_node() {
-        brew install nodebrew
+        curl -L git.io/nodebrew | perl - setup
+    }
+
+    init_docker() {
+        sudo apt-get remove docker docker-engine docker.io containerd runc
+        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        sudo apt-get update
+        sudo apt-get install docker-ce docker-ce-cli containerd.io
+        sudo usermod -aG docker $USER
+    }
+
+    init_docker_compose() {
+        sudo curl -L https://github.com/docker/compose/releases/download/1.21.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+        sudo chmod 0755 /usr/local/bin/docker-compose
     }
 
     init_git
@@ -135,14 +135,13 @@ setup() {
     init_zsh
     init_tmux
     init_ctags
-    init_ag
     init_fzf
     init_rbenv
     init_golang
     init_ghq
-    init_virtualbox
-    init_vagrant
     init_node
+    init_docker
+    init_docker_compose
     init_vim
 }
 
