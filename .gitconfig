@@ -4,7 +4,7 @@
   name = hamuyuuki
   email = hamuyuuki32@gmail.com
 [core]
-  editor = vim -c \"set fenc=utf-8\"
+  editor = vim -u NONE --noplugin -c \"set fenc=utf-8\"
 	excludesfile = /Users/yuuki_ito/.gitignore
 [hub]
   host = gitlab.pixta.jp
