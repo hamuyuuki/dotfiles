@@ -34,7 +34,8 @@ set-window-option -g mode-keys vi
 # cp contrib/darwin/tcp-port/com.wincent.clipper.plist ~/Library/LaunchAgents/
 # launchctl load -w -S Aqua ~/Library/LaunchAgents/com.wincent.clipper.plist
 bind q copy-mode \; display "Copy mode!"
-bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "nc -N localhost 8377"
+# bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 bind -T copy-mode-vi v send -X begin-selection
 bind -T copy-mode-vi C-v send -X rectangle-toggle
 bind p paste-buffer

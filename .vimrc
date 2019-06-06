@@ -210,13 +210,13 @@ inoremap <C-_> <ESC>:sp <C-R>=expand("%:p")<CR><CR>
 inoremap <C-\> <ESC>:vs <C-R>=expand("%:p")<CR><CR>
 
 nnoremap / /\v
-nnoremap <Space>y :call system('nc localhost 8377', @0)<CR>
+nnoremap <Space>y :call system('nc -N localhost 8377', @0)<CR>
 
 inoremap <Nul> <C-p>
 imap <Nul> <C-Space>
 
-vnoremap y y:call system('nc localhost 8377', @0)<CR>
-nnoremap yy yy:call system('nc localhost 8377', @0)<CR>
+vnoremap y y:call system('nc -N localhost 8377', @0)<CR>
+nnoremap yy yy:call system('nc -N localhost 8377', @0)<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
