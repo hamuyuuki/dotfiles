@@ -114,6 +114,13 @@ setup() {
 
     init_node() {
         curl -L git.io/nodebrew | perl - setup
+        echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> "$HOME/.zshrc"
+    }
+
+    init_yarn() {
+        curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+        echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+        sudo apt-get update && sudo apt-get -y install yarn
     }
 
     init_docker() {
@@ -141,6 +148,7 @@ setup() {
     init_golang
     init_ghq
     init_node
+    init_yarn
     init_docker
     init_docker_compose
     init_vim
