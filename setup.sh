@@ -51,8 +51,7 @@ setup() {
             echo "bindkey '^[OA' history-beginning-search-backward-end" >> "$HOME/.zshrc"
             echo "bindkey '^[OB' history-beginning-search-forward-end" >> "$HOME/.zshrc"
             echo "bindkey '^P' history-beginning-search-backward-end" >> "$HOME/.zshrc"
-            echo 'alias stv=''STV_PATH=`pwd | sed -e "s|$HOME/src|/vagrant|"`; ssh vagrant -t "cd $STV_PATH; bash --login"''' >> "$HOME/.zshrc"
-            echo 'alias stpdc=''cd /Users/yuuki_ito/src/github.com/pixta-dev/pixta-dev-containers; STV_PATH=`pwd | sed -e "s|$HOME/src|/vagrant|"`; ssh vagrant -t "cd $STV_PATH; bash --login"''' >> "$HOME/.zshrc"
+            echo "alias docker-compose-pixta='docker-compose -f /home/vagrant/src/github.com/pixta-dev/pixta-dev-containers/docker-compose.yml'" >> "$HOME/.zshrc"
         fi
     }
 
