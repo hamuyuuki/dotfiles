@@ -42,7 +42,7 @@ setup() {
             # zsh -c 'prompt steeef'
 
             echo "alias ll='ls -al'" >> "$HOME/.zshrc"
-            echo "alias t='tmux attach -t tmux || tmux new-session -s tmux \; source-file ~/.tmux.session'" >> "$HOME/.zshrc"
+            echo "alias t='tmux attach -t \`basename \$(pwd)\` || tmux new-session -s \`basename \$(pwd)\` \; source-file ~/.tmux.session'" >> "$HOME/.zshrc"
             echo "autoload -U compinit" >> "$HOME/.zshrc"
             echo "compinit" >> "$HOME/.zshrc"
             echo "autoload history-search-end" >> "$HOME/.zshrc"
