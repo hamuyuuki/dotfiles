@@ -2,10 +2,10 @@
   ui = auto
 [user]
   name = hamuyuuki
-  email = hamuyuuki32@gmail.com
+  email = 13702378+hamuyuuki@users.noreply.github.com
 [core]
   editor = vim -u NONE --noplugin -c \"set fenc=utf-8\"
-	excludesfile = /Users/yuuki_ito/.gitignore
+	excludesfile = ~/.gitignore
 [hub]
   host = gitlab.pixta.jp
 [alias]
