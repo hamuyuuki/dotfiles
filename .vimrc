@@ -106,10 +106,10 @@ set autoread
 set whichwrap=b,s,<,>,[,]
 
 "行表示を許可
-"set cursorline
+set cursorline
 
 "カレント行にアンダーラインを設定
-"highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 "1行100字制限
 set colorcolumn=101
@@ -229,8 +229,8 @@ set tags+=tags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "NERDTreeToggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "ウィンドウ幅を指定
 let g:NERDTreeWinSize = 40
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
