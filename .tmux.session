@@ -39,6 +39,8 @@ bind -T copy-mode-vi y send -X copy-pipe-and-cancel "nc -N localhost 8377"
 bind -T copy-mode-vi v send -X begin-selection
 bind -T copy-mode-vi C-v send -X rectangle-toggle
 bind p paste-buffer
+bind w split-window "tmux list-windows -F '#{window_index}: #{pane_current_path} #{?window_active, (active),}' | fzf | cut -d':' -f 1 | xargs tmux select-window -t"
+
 
 # splitw -h
 # selectp -L
