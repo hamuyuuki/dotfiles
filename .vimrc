@@ -178,8 +178,8 @@ inoremap <C-l> <Right>
 nnoremap <C-p> :Files<CR>
 inoremap <C-p> <ESC>:Files<CR>
 
-nnoremap <C-e> :NED<CR>
-inoremap <C-e> <ESC>:Files<CR>
+nnoremap <C-e> :NERDTreeTabsToggle<CR>
+inoremap <C-e> <ESC>:NERDTreeTabsToggle<CR>
 
 nnoremap <C-t> :tabnew<CR>
 inoremap <C-t> <ESC>:tabnew<CR>
