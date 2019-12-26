@@ -1,8 +1,10 @@
-# prefixキーをC-qに変更
-set -g prefix C-q
-
 # C-bのキーバインドを解除
 unbind C-b
+
+# prefixキーをC-qに変更
+# set -g prefix C-q
+set -g prefix C-Space
+bind Space send-prefix
 
 # vim color を反映させる
 set-option -g default-terminal screen-256color
