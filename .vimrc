@@ -38,7 +38,6 @@ NeoBundle 'romanvbabenko/rails.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'othree/html5.vim'
@@ -194,18 +193,17 @@ nnoremap <C-k> <C-w>k
 
 nnoremap <C-]> g<C-]>
 nnoremap <C-n> :tabnext<CR>
-nnoremap <C-p> :tabprevious<CR>
+"nnoremap <C-p> :tabprevious<CR>
 nnoremap <C-w> :w<CR>
 nnoremap <C-z> :q!<CR>
 inoremap <C-]> <ESC>g<C-]>
-inoremap <C-n> <C-x><C-n><C-p>
-inoremap <C-p> <C-x><C-p><C-n>
+inoremap <C-n> <C-x><C-n>
 inoremap <C-w> <ESC>:w<CR>
 inoremap <C-z> <ESC>:q!<CR>
 
-inoremap <C-f> <C-x><C-f><C-p>
-inoremap <C-o> <C-x><C-o><C-p>
-inoremap <C-Space> <C-x><C-]><C-p>
+inoremap <C-f> <C-x><C-f><C-n>
+inoremap <C-o> <C-x><C-o><C-n>
+inoremap <C-Space> <C-x><C-]><C-n>
 
 nnoremap <C-_> :sp <C-R>=expand("%:p")<CR><CR>
 nnoremap <C-\> :vs <C-R>=expand("%:p")<CR><CR>
