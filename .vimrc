@@ -106,10 +106,10 @@ set autoread
 set whichwrap=b,s,<,>,[,]
 
 "行表示を許可
-set cursorline
+"set cursorline
 
 "カレント行にアンダーラインを設定
-highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+"highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 
 "1行100字制限
 set colorcolumn=101
