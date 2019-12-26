@@ -52,8 +52,8 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-projectionist'
-NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
+NeoBundle 'jistr/vim-nerdtree-tabs'
 
 call neobundle#end()
 
@@ -175,11 +175,14 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-nnoremap <C-e> :Files<CR>
+nnoremap <C-p> :Files<CR>
+inoremap <C-p> <ESC>:Files<CR>
+
+nnoremap <C-e> :NED<CR>
 inoremap <C-e> <ESC>:Files<CR>
 
-nnoremap <C-t> :tabnew <C-R>=expand("%:p")<CR><CR>
-inoremap <C-t> <ESC>:tabnew <C-R>=expand("%:p")<CR><CR>
+nnoremap <C-t> :tabnew<CR>
+inoremap <C-t> <ESC>:tabnew<CR>
 
 nnoremap <C-g> :Grepper -tool grep -highlight<CR>
 inoremap <C-g> <ESC>:Grepper -tool grep -highlight<CR>
