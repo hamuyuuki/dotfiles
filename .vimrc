@@ -51,6 +51,7 @@ NeoBundle 'moll/vim-node'
 NeoBundle 'ConradIrwin/vim-bracketed-paste'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-projectionist'
+NeoBundle 'junegunn/fzf'
 NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 
