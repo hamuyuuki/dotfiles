@@ -286,6 +286,7 @@ let g:indent_guides_guide_size=1
 "ale
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ale_linters = {'ruby': ['rubocop']}
+let g:ale_fixers = {'ruby': ['rubocop']}
 "let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
