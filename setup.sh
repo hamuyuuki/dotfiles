@@ -40,18 +40,6 @@ setup() {
 
             zsh -c 'setopt EXTENDED_GLOB'
             # zsh -c 'prompt steeef'
-
-            echo "alias ll='ls -al'" >> "$HOME/.zshrc"
-            echo "alias t='tmux attach -t \`basename \$(pwd)\` || tmux new-session -s \`basename \$(pwd)\` \; source-file ~/.tmux.session'" >> "$HOME/.zshrc"
-            echo "autoload -U compinit" >> "$HOME/.zshrc"
-            echo "compinit" >> "$HOME/.zshrc"
-            echo "autoload history-search-end" >> "$HOME/.zshrc"
-            echo "zle -N history-beginning-search-backward-end history-search-end" >> "$HOME/.zshrc"
-            echo "zle -N history-beginning-search-forward-end history-search-end" >> "$HOME/.zshrc"
-            echo "bindkey '^[OA' history-beginning-search-backward-end" >> "$HOME/.zshrc"
-            echo "bindkey '^[OB' history-beginning-search-forward-end" >> "$HOME/.zshrc"
-            echo "bindkey '^P' history-beginning-search-backward-end" >> "$HOME/.zshrc"
-            echo "alias docker-compose-pixta='docker-compose -f /home/vagrant/src/github.com/pixta-dev/pixta-dev-containers/docker-compose.yml'" >> "$HOME/.zshrc"
         fi
     }
 
@@ -89,9 +77,6 @@ setup() {
         if [ ! -d "$HOME/.rbenv" ]; then
             git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
             git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-            echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> "$HOME/.zshrc"
-            echo 'eval "$(rbenv init -)"' >> "$HOME/.zshrc"
-            exec $SHELL -l
         fi
     }
 
@@ -99,21 +84,14 @@ setup() {
         sudo add-apt-repository ppa:longsleep/golang-backports
         sudo apt-get update
         sudo apt-get -y install golang-go
-        echo 'export GOPATH=$HOME' >> "$HOME/.zshrc"
-        echo 'export PATH=$PATH:$GOPATH/bin' >> "$HOME/.zshrc"
-        exec $SHELL -l
     }
 
     init_ghq() {
         go get github.com/motemen/ghq
-        echo 'function fzf-src () { cd $(ghq list -p | fzf)  }' >> "$HOME/.zshrc"
-        echo 'zle -N fzf-src' >> "$HOME/.zshrc"
-        echo 'bindkey "^]" fzf-src' >> "$HOME/.zshrc"
     }
 
     init_node() {
         curl -L git.io/nodebrew | perl - setup
-        echo 'export PATH=$HOME/.nodebrew/current/bin:$PATH' >> "$HOME/.zshrc"
     }
 
     init_yarn() {
