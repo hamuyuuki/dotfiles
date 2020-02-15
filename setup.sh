@@ -12,9 +12,11 @@ setup() {
     }
 
     init_git() {
-        sudo apt-get -y install git
-        symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
-        symlink "$dotfiles/.gitignore" "$HOME/.gitignore"
+        if [ ! -f "$HOME/.gitconfig" ] || [ ! -f "$HOME/.gitignore" ]; then
+            sudo apt-get -y install git
+            symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
+            symlink "$dotfiles/.gitignore" "$HOME/.gitignore"
+        fi
     }
 
     clone_dotfiles() {
@@ -26,11 +28,11 @@ setup() {
     }
 
     init_zsh() {
-        sudo apt-get -y install zsh
-        sudo chsh -s /bin/zsh $USER
-        if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-            git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+        if [ ! -f "$HOME/.zshrc.local" ]; then
+            sudo apt-get -y install zsh
+            sudo chsh -s /bin/zsh $USER
 
+            git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
             symlink "$HOME/.zprezto/runcoms/zlogin" "$HOME/.zlogin"
             symlink "$HOME/.zprezto/runcoms/zshrc" "$HOME/.zshrc"
             symlink "$HOME/.zprezto/runcoms/zshenv" "$HOME/.zshenv"
@@ -38,32 +40,44 @@ setup() {
             symlink "$HOME/.zprezto/runcoms/zpreztorc" "$HOME/.zpreztorc"
             symlink "$HOME/.zprezto/runcoms/zlogout" "$HOME/.zlogout"
 
+            symlink "$dotfiles/.zshrc.local" "$HOME/.zshrc.local"
+            echo "source ~/.zshrc.local" >> "$HOME/.zshrc"
+
             zsh -c 'setopt EXTENDED_GLOB'
-            # zsh -c 'prompt steeef'
         fi
     }
 
     init_vim() {
-        sudo apt-get -y install vim
-        sudo apt-get -y install gcc
-        symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
-        if [ ! -d "$HOME/.vim/bundle" ]; then mkdir -p $HOME/.vim/bundle; fi
-        if [ ! -d "$HOME/.vim/plugin" ]; then mkdir -p $HOME/.vim/plugin; fi
-        if [ ! -d "$HOME/.vim/colors" ]; then mkdir -p $HOME/.vim/colors; fi
-        if [ ! -d "$HOME/.vim/bundle/neobundle.vim" ]; then git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim; fi
-        if [ ! -d "$HOME/.vim/bundle/vimproc.vim" ]; then git clone https://github.com/Shougo/vimproc.vim $HOME/.vim/bundle/vimproc.vim; fi
-        if [ ! -d "$HOME/.vim/bundle/vimproc.vim/lib/vimproc_linux64.so" ]; then cd $HOME/.vim/bundle/vimproc.vim && make && cd; fi
-        vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall!
+        if [ ! -f "$HOME/.vimrc" ]; then
+            sudo apt-get -y install vim
+            sudo apt-get -y install gcc
+
+            symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
+
+            mkdir -p $HOME/.vim/bundle
+            mkdir -p $HOME/.vim/plugin
+            mkdir -p $HOME/.vim/colors
+
+            git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+            git clone https://github.com/Shougo/vimproc.vim $HOME/.vim/bundle/vimproc.vim
+            cd $HOME/.vim/bundle/vimproc.vim && make && cd
+
+            vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall!
+        fi
     }
 
     init_tmux() {
-        sudo apt-get -y install tmux
-        symlink "$dotfiles/.tmux.session" "$HOME/.tmux.session"
+        if [ ! -f "$HOME/.tmux.session" ]; then
+            sudo apt-get -y install tmux
+            symlink "$dotfiles/.tmux.session" "$HOME/.tmux.session"
+        fi
     }
 
     init_ctags() {
-        sudo apt-get -y install ctags
-        symlink "$dotfiles/.ctags" "$HOME/.ctags"
+        if [ ! -f "$HOME/.ctags" ]; then
+            sudo apt-get -y install ctags
+            symlink "$dotfiles/.ctags" "$HOME/.ctags"
+        fi
     }
 
     init_fzf() {
@@ -81,13 +95,13 @@ setup() {
     }
 
     init_golang() {
-        sudo add-apt-repository ppa:longsleep/golang-backports
-        sudo apt-get update
-        sudo apt-get -y install golang-go
-    }
+        if [ ! -d "$HOME/src" ]; then
+            sudo add-apt-repository ppa:longsleep/golang-backports
+            sudo apt-get update
+            sudo apt-get -y install golang-go
 
-    init_ghq() {
-        go get github.com/motemen/ghq
+            go get github.com/motemen/ghq
+        fi
     }
 
     init_node() {
@@ -123,7 +137,6 @@ setup() {
     init_fzf
     init_rbenv
     init_golang
-    init_ghq
     init_node
     init_yarn
     init_docker
