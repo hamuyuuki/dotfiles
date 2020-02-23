@@ -176,7 +176,6 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 nnoremap <C-p> :Files<CR>
-inoremap <C-p> <ESC>:Files<CR>
 
 nnoremap <C-e> :NERDTreeTabsToggle<CR>
 inoremap <C-e> <ESC>:NERDTreeTabsToggle<CR>
@@ -194,7 +193,6 @@ nnoremap <C-k> <C-w>k
 
 nnoremap <C-]> g<C-]>
 nnoremap <C-n> :tabnext<CR>
-"nnoremap <C-p> :tabprevious<CR>
 nnoremap <C-w> :w<CR>
 nnoremap <C-z> :q!<CR>
 inoremap <C-]> <ESC>g<C-]>
@@ -219,6 +217,8 @@ imap <Nul> <C-Space>
 
 vnoremap y y:call system('nc -N localhost 8377', @0)<CR>
 nnoremap yy yy:call system('nc -N localhost 8377', @0)<CR>
+
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
