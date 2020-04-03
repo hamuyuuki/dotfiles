@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+%w(vagrant-disksize).each do |plugin_name|
+  system "vagrant plugin install #{plugin_name}" unless Vagrant.has_plugin? plugin_name
+end
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -61,7 +65,8 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
   #
   #   # Customize the amount of memory on the VM:
-    vb.memory = "4096"
+    vb.memory = 6144
+    vb.cpus = 2
   end
   #
   # View the documentation for the provider you are using for more
@@ -74,4 +79,6 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  
+  config.disksize.size = "20GB"
 end
