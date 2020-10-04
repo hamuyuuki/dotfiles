@@ -13,4 +13,5 @@
   co = checkout
   df = diff
 [ghq]
-  root = ~/go/src
+  root = /home/vagrant/.go/src
+  root = /home/vagrant/src
