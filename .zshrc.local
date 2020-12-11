@@ -24,3 +24,8 @@ zle -N fzf-src
 bindkey "^]" fzf-src
 
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+if [[ ! -n $TMUX ]]; then
+  t
+fi
+
