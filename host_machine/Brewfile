@@ -1,0 +1,9 @@
+tap "homebrew/cask-fonts"
+
+brew "clipper"
+
+cask "bettertouchtool"
+cask "font-ricty-diminished"
+cask "vagrant"
+cask "virtualbox"
+cask "visual-studio-code"
