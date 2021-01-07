@@ -8,5 +8,5 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Run setup.sh
-        run: /bin/bash ./host_machine/setup.sh
+      - name: Setup the Host Machine
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/host_machine/setup.sh)"
