@@ -4,6 +4,7 @@ brew "clipper"
 
 cask "bettertouchtool"
 cask "font-ricty-diminished"
+cask "karabiner-elements"
 cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
