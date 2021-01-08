@@ -11,9 +11,13 @@ git clone https://github.com/hamuyuuki/dotfiles ~/.dotfiles
 # Install apt packages
 sudo apt update
 sudo apt install -y \
+  ctags \
   git \
   tmux \
   zsh
+
+# Setup Ctags
+ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
 
 # Setup Git
 ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig

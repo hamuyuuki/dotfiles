@@ -30,13 +30,6 @@ setup() {
         fi
     }
 
-    init_ctags() {
-        if [ ! -f "$HOME/.ctags" ]; then
-            sudo apt-get -y install ctags
-            symlink "$dotfiles/.ctags" "$HOME/.ctags"
-        fi
-    }
-
     init_fzf() {
         if [ ! -d "$HOME/.fzf" ]; then
             git clone https://github.com/junegunn/fzf.git ~/.fzf
@@ -97,7 +90,6 @@ setup() {
         fi
     }
 
-    init_ctags
     init_fzf
     init_rbenv
     init_golang
