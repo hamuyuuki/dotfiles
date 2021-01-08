@@ -30,13 +30,6 @@ setup() {
         fi
     }
 
-    init_fzf() {
-        if [ ! -d "$HOME/.fzf" ]; then
-            git clone https://github.com/junegunn/fzf.git ~/.fzf
-            ~/.fzf/install
-        fi
-    }
-
     init_rbenv() {
         if [ ! -d "$HOME/.rbenv" ]; then
             git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -90,7 +83,6 @@ setup() {
         fi
     }
 
-    init_fzf
     init_rbenv
     init_golang
     init_node

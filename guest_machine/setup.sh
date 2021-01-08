@@ -19,6 +19,10 @@ sudo apt install -y \
 # Setup Ctags
 ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
 
+# Setup fzf
+git clone https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # Setup Git
 ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
