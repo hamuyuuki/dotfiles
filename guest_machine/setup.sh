@@ -12,11 +12,15 @@ git clone https://github.com/hamuyuuki/dotfiles ~/.dotfiles
 sudo apt update
 sudo apt install -y \
   git \
+  tmux \
   zsh
 
 # Setup Git
 ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
+
+# Setup tmux
+ln -s ~/.dotfiles/guest_machine/.tmux.session ~/.tmux.session
 
 # Setup Z Shell
 zsh

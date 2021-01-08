@@ -30,13 +30,6 @@ setup() {
         fi
     }
 
-    init_tmux() {
-        if [ ! -f "$HOME/.tmux.session" ]; then
-            sudo apt-get -y install tmux
-            symlink "$dotfiles/.tmux.session" "$HOME/.tmux.session"
-        fi
-    }
-
     init_ctags() {
         if [ ! -f "$HOME/.ctags" ]; then
             sudo apt-get -y install ctags
@@ -104,7 +97,6 @@ setup() {
         fi
     }
 
-    init_tmux
     init_ctags
     init_fzf
     init_rbenv
