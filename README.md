@@ -10,6 +10,6 @@
 
 ## Guest Machine (Ubuntu 20.04)
 
-```
+```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/guest_machine/setup.sh)"
 ```
