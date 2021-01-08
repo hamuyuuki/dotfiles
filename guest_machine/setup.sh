@@ -30,6 +30,7 @@ sudo apt install -y \
   docker-ce \
   docker-ce-cli \
   containerd.io \
+  gcc \
   git \
   golang-1.13 \
   libdb-dev \
@@ -42,6 +43,7 @@ sudo apt install -y \
   libyaml-dev \
   tmux \
   yarn \
+  vim \
   zlib1g-dev \
   zsh
 
@@ -94,3 +96,13 @@ git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
 
 # Setup tmux
 ln -s ~/.dotfiles/guest_machine/.tmux.session ~/.tmux.session
+
+# Setup Vim
+ln -s ~/.dotfiles/guest_machine/.vimrc ~/.vimrc
+
+mkdir -p ~/.vim/bundle ~/.vim/colors ~/.vim/plugin
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+git clone https://github.com/Shougo/vimproc.vim ~/.vim/bundle/vimproc.vim
+cd ~/.vim/bundle/vimproc.vim && make && cd
+
+vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall!
