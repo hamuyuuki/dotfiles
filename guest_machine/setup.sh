@@ -5,9 +5,6 @@ set -e
 set -u
 set -v
 
-# Clone dotfiles repository
-git clone https://github.com/hamuyuuki/dotfiles ~/.dotfiles
-
 # Install apt packages
 sudo apt update
 sudo add-apt-repository ppa:longsleep/golang-backports && \
@@ -31,6 +28,13 @@ sudo apt install -y \
   zlib1g-dev \
   zsh
 
+# Setup Git
+ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
+
+# Clone dotfiles repository
+git clone https://github.com/hamuyuuki/dotfiles ~/.dotfiles
+
 # Setup Z Shell
 zsh -c '
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -52,10 +56,6 @@ ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
 # Setup fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
-
-# Setup Git
-ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
 
 # Setup Golang
 go get github.com/motemen/ghq
