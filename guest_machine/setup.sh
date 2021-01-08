@@ -7,13 +7,27 @@ set -v
 
 # Install apt packages
 sudo apt update
-sudo add-apt-repository ppa:longsleep/golang-backports && \
-  sudo apt-get update
+
+sudo apt install -y \
+  apt-transport-https \
+  ca-certificates \
+  curl \
+  gnupg-agent \
+  software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt-get update
+
 sudo apt install -y \
   autoconf \
   bison \
   build-essential \
   ctags \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io \
   git \
   golang-1.13 \
   libdb-dev \
@@ -52,6 +66,9 @@ sudo chsh -s /bin/zsh $USER
 
 # Setup Ctags
 ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
+
+# Setup Docker
+sudo usermod -aG docker $USER
 
 # Setup fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf
