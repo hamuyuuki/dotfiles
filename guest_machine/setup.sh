@@ -105,4 +105,4 @@ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 git clone https://github.com/Shougo/vimproc.vim ~/.vim/bundle/vimproc.vim
 cd ~/.vim/bundle/vimproc.vim && make && cd
 
-vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall!
+vim -N -u NONE -i NONE -V1 -e -s --cmd "source .vimrc" --cmd NeoBundleInstall! --cmd qall! | true
