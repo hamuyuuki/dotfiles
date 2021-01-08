@@ -6,3 +6,8 @@ jobs:
     steps:
       - name: Setup the Host Machine
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/host_machine/setup.sh)"
+  test-guest_machine:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Setup the Guest Machine
+        run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/guest_machine/setup.sh)"
