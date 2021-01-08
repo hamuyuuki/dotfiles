@@ -11,9 +11,21 @@ git clone https://github.com/hamuyuuki/dotfiles ~/.dotfiles
 # Install apt packages
 sudo apt update
 sudo apt install -y \
+  autoconf \
+  bison \
+  build-essential \
   ctags \
   git \
+  libdb-dev \
+  libffi-dev \
+  libgdbm6 \
+  libgdbm-dev \
+  libncurses5-dev \
+  libreadline6-dev \
+  libssl-dev \
+  libyaml-dev \
   tmux \
+  zlib1g-dev \
   zsh
 
 # Setup Ctags
@@ -26,6 +38,11 @@ git clone https://github.com/junegunn/fzf.git ~/.fzf
 # Setup Git
 ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
+
+# Setup rbenv
+git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
 
 # Setup tmux
 ln -s ~/.dotfiles/guest_machine/.tmux.session ~/.tmux.session

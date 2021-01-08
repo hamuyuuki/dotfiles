@@ -30,16 +30,6 @@ setup() {
         fi
     }
 
-    init_rbenv() {
-        if [ ! -d "$HOME/.rbenv" ]; then
-            git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-            git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-            git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
-
-            sudo apt-get -y install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
-        fi
-    }
-
     init_golang() {
         if [ ! -d "$HOME/src" ]; then
             sudo add-apt-repository ppa:longsleep/golang-backports
@@ -83,7 +73,6 @@ setup() {
         fi
     }
 
-    init_rbenv
     init_golang
     init_node
     init_yarn
