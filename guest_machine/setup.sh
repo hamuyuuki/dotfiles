@@ -10,12 +10,15 @@ git clone https://github.com/hamuyuuki/dotfiles ~/.dotfiles
 
 # Install apt packages
 sudo apt update
+sudo add-apt-repository ppa:longsleep/golang-backports && \
+  sudo apt-get update
 sudo apt install -y \
   autoconf \
   bison \
   build-essential \
   ctags \
   git \
+  golang-go \
   libdb-dev \
   libffi-dev \
   libgdbm6 \
@@ -38,6 +41,9 @@ git clone https://github.com/junegunn/fzf.git ~/.fzf
 # Setup Git
 ln -s ~/.dotfiles/guest_machine/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
+
+# Setup Golang
+go get github.com/motemen/ghq
 
 # Setup rbenv
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
