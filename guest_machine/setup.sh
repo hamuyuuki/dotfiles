@@ -23,12 +23,14 @@ ln -s ~/.dotfiles/guest_machine/.gitignore ~/.gitignore
 ln -s ~/.dotfiles/guest_machine/.tmux.session ~/.tmux.session
 
 # Setup Z Shell
-git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+zsh -c '
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-zsh -c "setopt EXTENDED_GLOB"
-for rcfile in ~/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "~/.${rcfile:t}"
-done
+  setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+'
 
 ln -s ~/.dotfiles/guest_machine/.zshrc.local ~/.zshrc.local
 echo "source ~/.zshrc.local" >> ~/.zshrc
