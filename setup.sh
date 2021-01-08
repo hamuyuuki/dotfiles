@@ -11,14 +11,6 @@ setup() {
         [ -e "$2" ] || ln -s "$1" "$2"
     }
 
-    init_git() {
-        if [ ! -f "$HOME/.gitconfig" ] || [ ! -f "$HOME/.gitignore" ]; then
-            sudo apt-get -y install git
-            symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
-            symlink "$dotfiles/.gitignore" "$HOME/.gitignore"
-        fi
-    }
-
     clone_dotfiles() {
         if [ -d "$dotfiles" ]; then
             (cd "$dotfiles" && git pull --rebase)
@@ -140,7 +132,6 @@ setup() {
         fi
     }
 
-    init_git
     clone_dotfiles
     init_zsh
     init_tmux

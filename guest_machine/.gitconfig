@@ -6,8 +6,6 @@
 [core]
   editor = vim -u NONE --noplugin -c \"set fenc=utf-8\"
   excludesfile = ~/.gitignore
-[hub]
-  host = gitlab.pixta.jp
 [alias]
   st = status
   co = checkout
