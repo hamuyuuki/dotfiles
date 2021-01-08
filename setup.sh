@@ -30,12 +30,6 @@ setup() {
         fi
     }
 
-    init_node() {
-        if ! which nodebrew; then
-            curl -L git.io/nodebrew | perl - setup
-        fi
-    }
-
     init_yarn() {
         if ! which yarn; then
             curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -63,7 +57,6 @@ setup() {
         fi
     }
 
-    init_node
     init_yarn
     init_docker
     init_docker_compose

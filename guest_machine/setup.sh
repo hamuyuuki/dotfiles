@@ -60,6 +60,9 @@ git clone https://github.com/junegunn/fzf.git ~/.fzf
 # Setup Golang
 go get github.com/motemen/ghq
 
+# Setup nodebrew
+curl -L git.io/nodebrew | perl - setup
+
 # Setup rbenv
 git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
