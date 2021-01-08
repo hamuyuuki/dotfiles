@@ -11,14 +11,6 @@ setup() {
         [ -e "$2" ] || ln -s "$1" "$2"
     }
 
-    clone_dotfiles() {
-        if [ -d "$dotfiles" ]; then
-            (cd "$dotfiles" && git pull --rebase)
-        else
-            git clone https://github.com/hamuyuuki/dotfiles "$dotfiles"
-        fi
-    }
-
     init_zsh() {
         if [ ! -f "$HOME/.zshrc.local" ]; then
             sudo apt-get -y install zsh
@@ -132,7 +124,6 @@ setup() {
         fi
     }
 
-    clone_dotfiles
     init_zsh
     init_tmux
     init_ctags
