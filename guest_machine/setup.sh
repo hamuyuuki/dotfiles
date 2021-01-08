@@ -31,6 +31,21 @@ sudo apt install -y \
   zlib1g-dev \
   zsh
 
+# Setup Z Shell
+zsh -c '
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+  setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+'
+
+ln -s ~/.dotfiles/guest_machine/.zshrc.local ~/.zshrc.local
+echo "source ~/.zshrc.local" >> ~/.zshrc
+
+sudo chsh -s /bin/zsh $USER
+
 # Setup Ctags
 ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
 
@@ -52,18 +67,3 @@ git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
 
 # Setup tmux
 ln -s ~/.dotfiles/guest_machine/.tmux.session ~/.tmux.session
-
-# Setup Z Shell
-zsh -c '
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
-'
-
-ln -s ~/.dotfiles/guest_machine/.zshrc.local ~/.zshrc.local
-echo "source ~/.zshrc.local" >> ~/.zshrc
-
-sudo chsh -s /bin/zsh $USER
