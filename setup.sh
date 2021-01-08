@@ -11,26 +11,6 @@ setup() {
         [ -e "$2" ] || ln -s "$1" "$2"
     }
 
-    init_zsh() {
-        if [ ! -f "$HOME/.zshrc.local" ]; then
-            sudo apt-get -y install zsh
-            sudo chsh -s /bin/zsh $USER
-
-            git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-            symlink "$HOME/.zprezto/runcoms/zlogin" "$HOME/.zlogin"
-            symlink "$HOME/.zprezto/runcoms/zshrc" "$HOME/.zshrc"
-            symlink "$HOME/.zprezto/runcoms/zshenv" "$HOME/.zshenv"
-            symlink "$HOME/.zprezto/runcoms/zprofile" "$HOME/.zprofile"
-            symlink "$HOME/.zprezto/runcoms/zpreztorc" "$HOME/.zpreztorc"
-            symlink "$HOME/.zprezto/runcoms/zlogout" "$HOME/.zlogout"
-
-            symlink "$dotfiles/.zshrc.local" "$HOME/.zshrc.local"
-            echo "source ~/.zshrc.local" >> "$HOME/.zshrc"
-
-            zsh -c 'setopt EXTENDED_GLOB'
-        fi
-    }
-
     init_vim() {
         if [ ! -f "$HOME/.vimrc" ]; then
             sudo apt-get -y install vim
@@ -124,7 +104,6 @@ setup() {
         fi
     }
 
-    init_zsh
     init_tmux
     init_ctags
     init_fzf
