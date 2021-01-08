@@ -18,6 +18,8 @@ sudo apt install -y \
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo add-apt-repository ppa:longsleep/golang-backports
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update
 
 sudo apt install -y \
@@ -39,6 +41,7 @@ sudo apt install -y \
   libssl-dev \
   libyaml-dev \
   tmux \
+  yarn \
   zlib1g-dev \
   zsh
 
