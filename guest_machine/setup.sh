@@ -70,6 +70,10 @@ ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
 # Setup Docker
 sudo usermod -aG docker $USER
 
+# Setup Docker Compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod 0755 /usr/local/bin/docker-compose
+
 # Setup fzf
 git clone https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install

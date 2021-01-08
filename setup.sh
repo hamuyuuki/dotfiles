@@ -38,15 +38,7 @@ setup() {
         fi
     }
 
-    init_docker_compose() {
-        if ! which docker-compose; then
-            sudo curl -L https://github.com/docker/compose/releases/download/1.21.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-            sudo chmod 0755 /usr/local/bin/docker-compose
-        fi
-    }
-
     init_yarn
-    init_docker_compose
     init_vim
 }
 
