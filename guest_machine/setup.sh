@@ -15,7 +15,7 @@ sudo apt install -y \
   build-essential \
   ctags \
   git \
-  golang-go \
+  golang \
   libdb-dev \
   libffi-dev \
   libgdbm6 \
