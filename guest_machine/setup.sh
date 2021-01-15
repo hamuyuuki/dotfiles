@@ -32,7 +32,7 @@ sudo apt install -y \
   containerd.io \
   gcc \
   git \
-  golang-1.13 \
+  golang-go \
   libdb-dev \
   libffi-dev \
   libgdbm6 \
