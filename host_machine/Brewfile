@@ -18,4 +18,4 @@ cask "virtualbox"
 cask "visual-studio-code"
 cask "zoom"
 
-mas 1000397973 # Wallcat
+mas "Wallcat", id: 1000397973
