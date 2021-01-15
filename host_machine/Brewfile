@@ -2,9 +2,20 @@ tap "homebrew/cask-fonts"
 
 brew "clipper"
 
+cask "appcleaner"
 cask "bettertouchtool"
+cask "chatwork"
+cask "deepl"
 cask "font-ricty-diminished"
+cask "google-chrome"
 cask "karabiner-elements"
+cask "keepassxc"
+cask "sequel-pro"
+cask "slack"
+cask "spotify"
 cask "vagrant"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "zoom"
+
+mas "1000397973" # Wallcat
