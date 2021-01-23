@@ -11,3 +11,5 @@ jobs:
     steps:
       - name: Setup the Guest Machine
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/guest_machine/setup.sh)"
+        env:
+          GOROOT: "/usr/lib/go-1.15" # Use the golang-go package
