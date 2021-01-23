@@ -16,7 +16,7 @@ brew bundle --file=~/.dotfiles/host_machine/Brewfile
 
 # Setup Clipper
 curl -O https://raw.githubusercontent.com/wincent/clipper/master/contrib/darwin/tcp-port/com.wincent.clipper.plist
-mkdir ~/Library/LaunchAgents/
+mkdir -p ~/Library/LaunchAgents/
 sudo cp ./com.wincent.clipper.plist ~/Library/LaunchAgents/
 launchctl load -w -S Aqua ~/Library/LaunchAgents/com.wincent.clipper.plist
 
