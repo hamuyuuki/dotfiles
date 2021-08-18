@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   test-host_machine:
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
       - name: Setup the Host Machine
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/host_machine/setup.sh)"
