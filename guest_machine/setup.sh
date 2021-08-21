@@ -84,7 +84,7 @@ git clone https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Setup Golang
-go get github.com/motemen/ghq
+go get github.com/x-motemen/ghq
 
 # Setup nodebrew
 curl -L git.io/nodebrew | perl - setup
