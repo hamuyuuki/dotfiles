@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   test-host_machine:
-    runs-on: macos-10.15
+    runs-on: macos-11
     steps:
       - name: Setup the Host Machine
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/host_machine/setup.sh)"
@@ -12,4 +12,4 @@ jobs:
       - name: Setup the Guest Machine
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/guest_machine/setup.sh)"
         env:
-          GOROOT: "/usr/lib/go-1.15" # Use the golang-go package
+          GOROOT: "/usr/lib/go-1.16" # Use the golang-go package
