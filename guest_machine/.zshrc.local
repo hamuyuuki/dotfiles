@@ -15,8 +15,11 @@ bindkey '^P' history-beginning-search-backward-end
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function fzf-src () { cd $(ghq list -p | fzf)  }
