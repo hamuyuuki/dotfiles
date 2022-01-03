@@ -66,6 +66,7 @@ ln -s ~/.dotfiles/guest_machine/.zshrc.local ~/.zshrc.local
 echo "source ~/.zshrc.local" >> ~/.zshrc
 
 sudo chsh -s /bin/zsh $USER
+source ~/.zshrc
 
 # Setup Ctags
 ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
