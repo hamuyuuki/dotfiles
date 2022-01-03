@@ -88,9 +88,13 @@ goenv init
 # Setup golang
 goenv install 1.17.5
 goenv global 1.17.5
-
-# Setup ghq
 go get github.com/x-motemen/ghq
+
+# Setup kubectls
+git clone https://github.com/tkuchiki/kubectls ~/.kubectls
+
+# Setup kubectl
+kubectls install v1.22.0 --use
 
 # Setup nodebrew
 curl -L git.io/nodebrew | perl - setup

@@ -21,6 +21,8 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
+export PATH="$HOME/.kubectls/bin:$PATH"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function fzf-src () { cd $(ghq list -p | fzf)  }
 zle -N fzf-src
@@ -31,4 +33,3 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 if [[ ! -n $TMUX ]]; then
   t
 fi
-
