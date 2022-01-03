@@ -83,7 +83,7 @@ git clone https://github.com/junegunn/fzf.git ~/.fzf
 
 # Setup goenv
 git clone https://github.com/syndbg/goenv.git ~/.goenv
-exec $SHELL
+goenv init
 
 # Setup golang
 goenv install 1.17.5
