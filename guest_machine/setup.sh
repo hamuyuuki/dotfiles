@@ -17,6 +17,7 @@ sudo apt install -y \
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository ppa:longsleep/golang-backports
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update
@@ -31,6 +32,7 @@ sudo apt install -y \
   containerd.io \
   gcc \
   git \
+  golang-go \
   libdb-dev \
   libffi-dev \
   libgdbm6 \
@@ -66,7 +68,6 @@ ln -s ~/.dotfiles/guest_machine/.zshrc.local ~/.zshrc.local
 echo "source ~/.zshrc.local" >> ~/.zshrc
 
 sudo chsh -s /bin/zsh $USER
-source ~/.zshrc
 
 # Setup Ctags
 ln -s ~/.dotfiles/guest_machine/.ctags ~/.ctags
@@ -82,20 +83,14 @@ sudo chmod 0755 /usr/local/bin/docker-compose
 git clone https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+# Setup ghq
+go get github.com/x-motemen/ghq
+
 # Setup goenv
 git clone https://github.com/syndbg/goenv.git ~/.goenv
-goenv init
-
-# Setup golang
-goenv install 1.17.5
-goenv global 1.17.5
-go get github.com/x-motemen/ghq
 
 # Setup kubectls
 git clone https://github.com/tkuchiki/kubectls ~/.kubectls
-
-# Setup kubectl
-kubectls install v1.22.0 --use
 
 # Setup nodebrew
 curl -L git.io/nodebrew | perl - setup
