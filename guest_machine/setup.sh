@@ -89,6 +89,9 @@ go get github.com/x-motemen/ghq
 # Setup goenv
 git clone https://github.com/syndbg/goenv.git ~/.goenv
 
+# Setup helmenv
+git clone https://github.com/yuya-takeyama/helmenv.git ~/.helmenv
+
 # Setup kubectls
 git clone https://github.com/tkuchiki/kubectls ~/.kubectls
 

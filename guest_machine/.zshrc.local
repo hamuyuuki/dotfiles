@@ -21,6 +21,8 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
+export PATH="$HOME/.helmenv/bin:$PATH"
+
 export PATH="$HOME/.kubectls/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
