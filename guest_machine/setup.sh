@@ -95,6 +95,9 @@ git clone https://github.com/yuya-takeyama/helmenv.git ~/.helmenv
 # Setup kubectls
 git clone https://github.com/tkuchiki/kubectls ~/.kubectls
 
+# Setup kustomize
+curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | sudo bash -s -- /usr/local/bin
+
 # Setup nodebrew
 curl -L git.io/nodebrew | perl - setup
 
