@@ -27,3 +27,6 @@ ln -s ~/.dotfiles/host_machine/karabiner.json ~/.config/karabiner/karabiner.json
 # Setup Vagrant
 mkdir -p ~/vagrant/ubuntu
 ln -s ~/.dotfiles/host_machine/Vagrantfile ~/vagrant/ubuntu/Vagrantfile
+
+# Setup mouse scaling
+defaults write "Apple Global Domain" com.apple.mouse.scaling 15
