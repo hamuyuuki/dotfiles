@@ -9,6 +9,8 @@ jobs:
   test-guest_machine:
     runs-on: ubuntu-20.04
     steps:
+      - name: Remove the installed kustomize command
+        run: sudo rm -f /usr/local/bin/kustomize
       - name: Setup the Guest Machine
         run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/guest_machine/setup.sh)"
         env:
