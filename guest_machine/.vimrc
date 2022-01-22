@@ -153,17 +153,17 @@ autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
 "カラーテーマ設定
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "背景色(molokai)
-syntax enable
-set t_Co=256
-let g:molokai_original = 1
-let g:rehash256 = 1
-colorscheme molokai
+"syntax enable
+"set t_Co=256
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"colorscheme molokai
 
 "背景色(solarized)
-"syntax enable
-"set t_Co=16
-"set background=dark
-"colorscheme solarized
+syntax enable
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
