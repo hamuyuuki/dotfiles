@@ -36,7 +36,7 @@ fi
 
 # Setup Prezto
 if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
-  pushd $ZPREZTODIR
+  pushd ${ZDOTDIR:-$HOME}/.zprezto
   git pull
   git submodule sync --recursive
   git submodule update --init --recursive
@@ -65,7 +65,7 @@ defaults write com.apple.dock orientation -string left
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse  MouseButtonMode -string TwoButton
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool true
-``defaults write "Apple Global Domain" com.apple.mouse.scaling -int 15`
+defaults write "Apple Global Domain" com.apple.mouse.scaling -int 15
 defaults write "Apple Global Domain" com.apple.scrollwheel.scaling -int 1
 defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 5
 defaults write "Apple Global Domain" com.apple.trackpad.scrolling -int 1
