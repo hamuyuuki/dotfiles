@@ -5,5 +5,5 @@
 ## macOS Big Sur 11
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
 ```
