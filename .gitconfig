@@ -11,5 +11,5 @@
   co = checkout
   df = diff
 [ghq]
-  root = /home/vagrant/go
-  root = /home/vagrant/src
+  root = /Users/hamuyuuki/go
+  root = /Users/hamuyuuki/vagrant/src

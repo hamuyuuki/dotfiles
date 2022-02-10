@@ -1,5 +1,4 @@
 alias ll='ls -al'
-alias t='tmux attach -t `basename $(pwd)` || tmux new-session -s `basename $(pwd)` \; source-file ~/.tmux.session'
 
 autoload -U compinit
 compinit
@@ -21,17 +20,8 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
-export PATH="$HOME/.helmenv/bin:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
-export PATH="$HOME/.kubectls/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function fzf-src () { cd $(ghq list -p | fzf)  }
 zle -N fzf-src
 bindkey "^]" fzf-src
-
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-if [[ ! -n $TMUX ]]; then
-  t
-fi
