@@ -3,7 +3,7 @@ tap "homebrew/cask-fonts"
 brew "fontforge"
 brew "fzf"
 brew "ghq"
-brew "goenv"
+brew "goenv", args: ["HEAD"]
 brew "helm"
 brew "kubernetes-cli"
 brew "kustomize"
