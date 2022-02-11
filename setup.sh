@@ -28,12 +28,6 @@ fi
 # Install Homebrew packages
 brew bundle --file=$HOME/.dotfiles/Brewfile
 
-# Setup Zsh
-ln -fs ~/.dotfiles/.zshrc.local $HOME/.zshrc.local
-if ! grep -qF ".zshrc.local" $HOME/.zshrc; then
-  echo "source ~/.zshrc.local" >> $HOME/.zshrc
-fi
-
 # Setup Prezto
 if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
   pushd ${ZDOTDIR:-$HOME}/.zprezto
@@ -47,6 +41,12 @@ else
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
     ln -fs "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
   done
+fi
+
+# Setup Zsh
+ln -fs ~/.dotfiles/.zshrc.local $HOME/.zshrc.local
+if ! grep -qF ".zshrc.local" $HOME/.zshrc; then
+  echo "source ~/.zshrc.local" >> $HOME/.zshrc
 fi
 
 # Setup Git
