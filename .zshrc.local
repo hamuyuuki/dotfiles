@@ -11,7 +11,11 @@ bindkey '^[OA' history-beginning-search-backward-end
 bindkey '^[OB' history-beginning-search-forward-end
 bindkey '^P' history-beginning-search-backward-end
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$(uname -m)" == arm64 ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ "$(uname -m)" == x86_64 ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
