@@ -7,6 +7,7 @@ brew "goenv", args: ["HEAD"]
 brew "helm"
 brew "kubernetes-cli"
 brew "kustomize"
+brew "minikube"
 brew "nodebrew"
 brew "rbenv"
 
