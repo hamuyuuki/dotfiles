@@ -4,4 +4,4 @@ jobs:
   test:
     runs-on: macos-11
     steps:
-      - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
+      - run: /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
