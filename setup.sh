@@ -30,7 +30,7 @@ else
 fi
 
 # Install Homebrew packages
-brew bundle --file=$HOME/.dotfiles/Brewfile
+brew bundle --file=$HOME/.dotfiles/Brewfile --cleanup --no-lock
 
 # Setup Prezto
 if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
