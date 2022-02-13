@@ -1,5 +1,6 @@
 tap "homebrew/cask-fonts"
 
+brew "awscli"
 brew "fontforge"
 brew "fzf"
 brew "ghq"
