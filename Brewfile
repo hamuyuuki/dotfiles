@@ -6,6 +6,7 @@ brew "fzf"
 brew "ghq"
 brew "goenv", args: ["HEAD"]
 brew "helm"
+brew "helmfile"
 brew "kubernetes-cli"
 brew "kustomize"
 brew "minikube"
