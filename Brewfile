@@ -25,6 +25,7 @@ cask "notion"
 cask "sequel-pro"
 cask "slack"
 cask "spotify"
+cask "tripmode"
 cask "visual-studio-code"
 cask "zoom"
 
