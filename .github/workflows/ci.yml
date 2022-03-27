@@ -4,4 +4,6 @@ jobs:
   test:
     runs-on: macos-11
     steps:
+      - name: Clean up the default aws command
+        run: rm -f /usr/local/bin/aws
       - run: /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
