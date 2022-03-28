@@ -4,6 +4,6 @@ jobs:
   test:
     runs-on: macos-11
     steps:
-      - name: Clean up the default aws command
-        run: rm -f /usr/local/bin/aws
+      - name: Uninstall the default awscli package
+        run: brew uninstall awscli
       - run: /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
