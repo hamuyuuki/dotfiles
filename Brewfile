@@ -1,4 +1,5 @@
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 
 brew "awscli"
 brew "fontforge"
@@ -13,6 +14,7 @@ brew "minikube"
 brew "nodebrew"
 brew "rbenv"
 
+cask "1password-beta"
 cask "appcleaner"
 cask "bettertouchtool"
 cask "docker"
@@ -30,7 +32,6 @@ cask "visual-studio-code"
 cask "zoom"
 
 if !ENV["CI"]
-  mas "1Password 7", id: 1333542190
   mas "Trello", id: 1278508951
   mas "Unsplash Wallpapers", id: 1284863847
 end
