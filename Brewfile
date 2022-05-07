@@ -14,7 +14,7 @@ brew "minikube"
 brew "nodebrew"
 brew "rbenv"
 
-cask "1password-beta"
+cask "1password"
 cask "appcleaner"
 cask "bettertouchtool"
 cask "docker"
