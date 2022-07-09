@@ -14,6 +14,7 @@ brew "kustomize"
 brew "minikube"
 brew "nodebrew"
 brew "rbenv"
+brew "terraform"
 
 cask "1password"
 cask "appcleaner"
