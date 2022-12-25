@@ -71,7 +71,7 @@ defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool tr
 defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool true
 defaults write "Apple Global Domain" com.apple.mouse.scaling -int 15
 defaults write "Apple Global Domain" com.apple.scrollwheel.scaling -int 1
-defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 5
+defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 16
 defaults write "Apple Global Domain" com.apple.trackpad.scrolling -int 1
 defaults write "Apple Global Domain" InitialKeyRepeat -int 15
 defaults write "Apple Global Domain" KeyRepeat -int 2
