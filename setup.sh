@@ -63,6 +63,7 @@ if ! grep -qF "asdf.sh" $HOME/.zshrc; then
 fi
 asdf plugin add kubectl
 asdf plugin add minikube
+asdf plugin add nodejs
 
 # Setup fzf
 if [ ! -f $HOME/.fzf.zsh ]; then

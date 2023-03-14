@@ -11,7 +11,6 @@ brew "goenv", args: ["HEAD"]
 brew "helm"
 brew "helmfile"
 brew "kustomize"
-brew "nodebrew"
 brew "rbenv"
 brew "terraform"
 
