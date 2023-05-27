@@ -10,6 +10,7 @@ brew "ghq"
 brew "goenv", args: ["HEAD"]
 brew "helm"
 brew "helmfile"
+brew "k9s"
 brew "kustomize"
 brew "rbenv"
 brew "terraform"
