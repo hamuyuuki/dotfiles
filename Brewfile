@@ -40,4 +40,5 @@ if !ENV["CI"]
   mas "Trello", id: 1278508951
   mas "Unsplash Wallpapers", id: 1284863847
   mas "Reeder 5", id: 1529448980
+  mas "Kindle", id: 302584613
 end
