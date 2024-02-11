@@ -78,14 +78,18 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.mouse  MouseButtonMode 
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
 defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool true
 defaults write "Apple Global Domain" com.apple.mouse.scaling -int 15
+defaults write "Apple Global Domain" com.apple.mouse.tapBehavior -int 1
 defaults write "Apple Global Domain" com.apple.scrollwheel.scaling -int 1
-defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 16
+defaults write "Apple Global Domain" com.apple.trackpad.scaling -int 50
 defaults write "Apple Global Domain" com.apple.trackpad.scrolling -int 1
 defaults write "Apple Global Domain" InitialKeyRepeat -int 15
 defaults write "Apple Global Domain" KeyRepeat -int 2
 
 # Setup BetterTouchTool
 open -a /Applications/BetterTouchTool.app --args $HOME/.dotfiles/better_touch_tool/Default.bttpreset
+
+# Setup Karabiner-Elements
+ln -fs ~/.dotfiles/karabiner-elements/karabiner.json $HOME/.config/karabiner/karabiner.json
 
 # Setup Ricty Diminished
 chmod 744 $HOME/.dotfiles/ricty_diminished/fix_ricty_diminished.pe
