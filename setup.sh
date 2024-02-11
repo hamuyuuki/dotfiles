@@ -89,6 +89,7 @@ defaults write "Apple Global Domain" KeyRepeat -int 2
 open -a /Applications/BetterTouchTool.app --args $HOME/.dotfiles/better_touch_tool/Default.bttpreset
 
 # Setup Karabiner-Elements
+mkdir -p $HOME/.config/karabiner
 ln -fs ~/.dotfiles/karabiner-elements/karabiner.json $HOME/.config/karabiner/karabiner.json
 
 # Setup Ricty Diminished
