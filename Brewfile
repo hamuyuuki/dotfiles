@@ -1,10 +1,8 @@
-tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
 brew "awscli"
 brew "asdf"
 brew "eks-node-viewer"
-brew "fontforge"
 brew "fzf"
 brew "ghq"
 brew "goenv", args: ["HEAD"]
@@ -25,7 +23,6 @@ cask "bettertouchtool"
 cask "cloudflare-warp"
 cask "docker"
 cask "deepl"
-cask "font-ricty-diminished"
 cask "google-chrome"
 cask "google-japanese-ime"
 cask "karabiner-elements"

@@ -92,9 +92,5 @@ open -a /Applications/BetterTouchTool.app --args $HOME/.dotfiles/better_touch_to
 mkdir -p $HOME/.config/karabiner
 ln -fs ~/.dotfiles/karabiner-elements/karabiner.json $HOME/.config/karabiner/karabiner.json
 
-# Setup Ricty Diminished
-chmod 744 $HOME/.dotfiles/ricty_diminished/fix_ricty_diminished.pe
-$HOME/.dotfiles/ricty_diminished/fix_ricty_diminished.pe $HOME/Library/Fonts/RictyDiminishedDiscord-Bold.ttf
-$HOME/.dotfiles/ricty_diminished/fix_ricty_diminished.pe $HOME/Library/Fonts/RictyDiminishedDiscord-BoldOblique.ttf
-$HOME/.dotfiles/ricty_diminished/fix_ricty_diminished.pe $HOME/Library/Fonts/RictyDiminishedDiscord-Oblique.ttf
-$HOME/.dotfiles/ricty_diminished/fix_ricty_diminished.pe $HOME/Library/Fonts/RictyDiminishedDiscord-Regular.ttf
+# Setup Source Han Code JP
+curl -L -o $HOME/Library/Fonts/SourceHanCodeJP.ttc https://github.com/adobe-fonts/source-han-code-jp/releases/download/2.012R/SourceHanCodeJP.ttc
