@@ -1,4 +1,5 @@
 tap "homebrew/cask-versions"
+tap "aws/tap"
 
 brew "awscli"
 brew "asdf"
