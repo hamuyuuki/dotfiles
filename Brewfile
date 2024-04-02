@@ -5,6 +5,7 @@ brew "awscli"
 brew "asdf"
 brew "eks-node-viewer"
 brew "fzf"
+brew "gh"
 brew "ghq"
 brew "goenv", args: ["HEAD"]
 brew "helm"
