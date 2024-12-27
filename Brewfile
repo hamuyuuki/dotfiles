@@ -1,4 +1,3 @@
-tap "homebrew/cask-versions"
 tap "aws/tap"
 
 brew "awscli"
@@ -32,7 +31,6 @@ cask "krisp"
 cask "mysqlworkbench"
 cask "notion"
 cask "pgadmin4"
-cask "sequel-pro"
 cask "slack"
 cask "spotify"
 cask "tripmode"
