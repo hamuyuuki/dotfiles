@@ -64,6 +64,7 @@ fi
 asdf plugin add kubectl
 asdf plugin add minikube
 asdf plugin add nodejs
+asdf plugin add terraform
 
 # Setup fzf
 if [ ! -f $HOME/.fzf.zsh ]; then
@@ -72,11 +73,7 @@ fi
 
 # Setup Mac settings
 defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string TwoButton
-defaults write com.apple.dock mru-spaces -bool false
-defaults write com.apple.dock orientation -string left
 defaults write com.apple.driver.AppleBluetoothMultitouch.mouse  MouseButtonMode -string TwoButton
-defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
-defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" -bool true
 defaults write "Apple Global Domain" com.apple.mouse.scaling -int 15
 defaults write "Apple Global Domain" com.apple.mouse.tapBehavior -int 1
 defaults write "Apple Global Domain" com.apple.scrollwheel.scaling -int 1
