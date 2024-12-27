@@ -1,7 +1,5 @@
 name: CI
 on: push
-permissions:
-  contents: read
 jobs:
   test:
     runs-on: macos-15
@@ -11,8 +9,4 @@ jobs:
           rm -f /usr/local/bin/aws
           rm -f /usr/local/bin/aws_completer
           sudo rm -rf /usr/local/aws-cli
-      - run: |
-          /bin/zsh -c "$( \
-            curl -fsSL \
-              -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
-              https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
+      - run: /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
