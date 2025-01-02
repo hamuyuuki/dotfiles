@@ -16,7 +16,7 @@ brew "rbenv"
 brew "wrk"
 
 cask "1password"
-cask "1password-cli"
+cask "1password-cli", greedy: true
 cask "alt-tab"
 cask "appcleaner"
 cask "bettertouchtool"
@@ -25,7 +25,7 @@ cask "cloudflare-warp"
 cask "docker"
 cask "deepl"
 cask "google-chrome"
-cask "google-japanese-ime"
+cask "google-japanese-ime", greedy: true
 cask "karabiner-elements"
 cask "krisp"
 cask "mysqlworkbench"
@@ -41,5 +41,4 @@ if !ENV["CI"]
   mas "Kindle", id: 302584613
   mas "Trello", id: 1278508951
   mas "Reeder 5", id: 1529448980
-  mas "Kindle", id: 302584613
 end
