@@ -35,6 +35,7 @@ cask "zoom"
 
 if !ENV["CI"]
   mas "Kindle", id: 302584613
-  mas "Trello", id: 1278508951
+  mas "Perplexity", id: 6714467650
   mas "Reeder 5", id: 1529448980
+  mas "Trello", id: 1278508951
 end
