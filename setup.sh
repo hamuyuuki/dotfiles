@@ -82,9 +82,6 @@ defaults write "Apple Global Domain" com.apple.trackpad.scrolling -int 1
 defaults write "Apple Global Domain" InitialKeyRepeat -int 15
 defaults write "Apple Global Domain" KeyRepeat -int 2
 
-# Setup BetterTouchTool
-open -a /Applications/BetterTouchTool.app --args $HOME/.dotfiles/better_touch_tool/Default.bttpreset
-
 # Setup Karabiner-Elements
 mkdir -p $HOME/.config/karabiner
 ln -fs ~/.dotfiles/karabiner-elements/karabiner.json $HOME/.config/karabiner/karabiner.json

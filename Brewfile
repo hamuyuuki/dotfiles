@@ -19,7 +19,6 @@ cask "1password"
 cask "1password-cli", greedy: true
 cask "alt-tab"
 cask "appcleaner"
-cask "bettertouchtool"
 cask "chatgpt"
 cask "cloudflare-warp"
 cask "docker"
