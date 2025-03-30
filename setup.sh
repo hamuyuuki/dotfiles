@@ -58,18 +58,10 @@ ln -fs $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 ln -fs $HOME/.dotfiles/.gitignore $HOME/.gitignore
 
 # Setup asdf
-if ! grep -qF "asdf.sh" $HOME/.zshrc; then
-  echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
-fi
 asdf plugin add kubectl
 asdf plugin add minikube
 asdf plugin add nodejs
 asdf plugin add terraform
-
-# Setup fzf
-if [ ! -f $HOME/.fzf.zsh ]; then
-  $(brew --prefix)/opt/fzf/install
-fi
 
 # Setup Mac settings
 defaults write com.apple.AppleMultitouchMouse MouseButtonMode -string TwoButton

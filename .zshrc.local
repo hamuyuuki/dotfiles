@@ -6,7 +6,6 @@ autoload history-search-end
 
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-
 bindkey '^[OA' history-beginning-search-backward-end
 bindkey '^[OB' history-beginning-search-forward-end
 bindkey '^P' history-beginning-search-backward-end
@@ -26,6 +25,9 @@ eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+source <(fzf --zsh)
 function fzf-src () { cd $(ghq list -p | fzf)  }
 zle -N fzf-src
 bindkey "^]" fzf-src
