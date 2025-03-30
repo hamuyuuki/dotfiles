@@ -22,7 +22,6 @@ cask "appcleaner"
 cask "chatgpt"
 cask "cloudflare-warp"
 cask "docker"
-cask "deepl"
 cask "google-chrome"
 cask "google-japanese-ime", greedy: true
 cask "krisp"
