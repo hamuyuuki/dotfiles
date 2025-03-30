@@ -82,9 +82,5 @@ defaults write "Apple Global Domain" com.apple.trackpad.scrolling -int 1
 defaults write "Apple Global Domain" InitialKeyRepeat -int 15
 defaults write "Apple Global Domain" KeyRepeat -int 2
 
-# Setup Karabiner-Elements
-mkdir -p $HOME/.config/karabiner
-ln -fs ~/.dotfiles/karabiner-elements/karabiner.json $HOME/.config/karabiner/karabiner.json
-
 # Setup Source Han Code JP
 curl -L -o $HOME/Library/Fonts/SourceHanCodeJP.ttc https://github.com/adobe-fonts/source-han-code-jp/releases/download/2.012R/SourceHanCodeJP.ttc
