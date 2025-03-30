@@ -24,7 +24,6 @@ cask "cloudflare-warp"
 cask "docker"
 cask "google-chrome"
 cask "google-japanese-ime", greedy: true
-cask "krisp"
 cask "mysqlworkbench"
 cask "notion"
 cask "pgadmin4"
