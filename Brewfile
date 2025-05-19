@@ -22,6 +22,7 @@ cask "appcleaner"
 cask "chatgpt"
 cask "cloudflare-warp"
 cask "docker"
+cask "figma"
 cask "google-chrome"
 cask "google-japanese-ime", greedy: true
 cask "mysqlworkbench"
