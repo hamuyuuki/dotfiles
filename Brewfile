@@ -1,4 +1,4 @@
-tap "aws/tap", "https://github.com/aws/homebrew-tap", trusted: true
+tap "aws/tap"
 
 brew "awscli"
 brew "asdf"

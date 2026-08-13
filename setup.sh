@@ -30,6 +30,8 @@ else
 fi
 
 # Install Homebrew packages
+brew tap aws/tap
+brew trust aws/tap
 brew bundle --file=$HOME/.dotfiles/Brewfile --cleanup
 
 # Setup Prezto
