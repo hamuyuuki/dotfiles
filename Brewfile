@@ -1,4 +1,4 @@
-tap "aws/tap"
+tap "aws/tap", trusted: true
 
 brew "awscli"
 brew "asdf"
