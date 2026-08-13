@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   test:
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
       - name: Uninstalling the default AWS CLI
         run: |
