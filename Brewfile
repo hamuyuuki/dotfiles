@@ -3,7 +3,7 @@ brew "asdf"
 brew "fzf"
 brew "gh"
 brew "ghq"
-brew "goenv", args: ["HEAD"]
+brew "goenv"
 brew "helm"
 brew "helmfile"
 brew "jq"
