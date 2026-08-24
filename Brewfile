@@ -1,12 +1,9 @@
-tap "aws/tap"
-
 brew "awscli"
 brew "asdf"
-brew "eks-node-viewer"
 brew "fzf"
 brew "gh"
 brew "ghq"
-brew "goenv", args: ["HEAD"]
+brew "goenv"
 brew "helm"
 brew "helmfile"
 brew "jq"

@@ -1,12 +1,20 @@
 name: CI
 on: push
+permissions:
+  contents: read
 jobs:
   test:
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
+      - uses: actions/checkout@v4
       - name: Uninstalling the default AWS CLI
         run: |
           rm -f /usr/local/bin/aws
           rm -f /usr/local/bin/aws_completer
           sudo rm -rf /usr/local/aws-cli
-      - run: /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/hamuyuuki/dotfiles/master/setup.sh)"
+      - name: Symlink ~/.dotfiles to the checked-out branch
+        run: |
+          git checkout -B "$GITHUB_REF_NAME" "origin/$GITHUB_REF_NAME"
+          git branch --set-upstream-to="origin/$GITHUB_REF_NAME"
+          ln -s "$GITHUB_WORKSPACE" "$HOME/.dotfiles"
+      - run: /bin/zsh ./setup.sh
