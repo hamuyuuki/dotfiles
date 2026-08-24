@@ -33,21 +33,6 @@ fi
 brew bundle --file=$HOME/.dotfiles/Brewfile
 brew bundle cleanup --file=$HOME/.dotfiles/Brewfile --force
 
-# Setup Prezto
-if [ -d ${ZDOTDIR:-$HOME}/.zprezto ]; then
-  pushd ${ZDOTDIR:-$HOME}/.zprezto
-  git pull
-  git submodule sync --recursive
-  git submodule update --init --recursive
-  popd
-else
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -fs "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
-fi
-
 # Setup Zsh
 ln -fs ~/.dotfiles/.zshrc.local $HOME/.zshrc.local
 if ! grep -qF ".zshrc.local" $HOME/.zshrc; then
