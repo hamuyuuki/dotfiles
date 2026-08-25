@@ -10,6 +10,7 @@ brew "jq"
 brew "k9s"
 brew "kustomize"
 brew "rbenv"
+brew "starship"
 brew "wrk"
 
 cask "1password"

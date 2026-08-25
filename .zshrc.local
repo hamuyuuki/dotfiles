@@ -31,3 +31,5 @@ source <(fzf --zsh)
 function fzf-src () { cd $(ghq list -p | fzf)  }
 zle -N fzf-src
 bindkey "^]" fzf-src
+
+eval "$(starship init zsh)"
